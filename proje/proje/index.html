@@ -24,6 +24,76 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .glass {
+      background-color: rgba(50, 50, 50, 0.85);
+      border: 1px solid rgba(201, 161, 100, 0.25);
+    }
+
+    body.dark-mode .promo-banner {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3, 
+    body.dark-mode h4 {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode input, 
+    body.dark-mode textarea {
+      background-color: #2a2a2a !important;
+      color: #e0e0e0 !important;
+      border-color: #444 !important;
+    }
+
+    body.dark-mode input::placeholder, 
+    body.dark-mode textarea::placeholder {
+      color: #999 !important;
+    }
+
+    body.dark-mode .text-gray-700 {
+      color: #bbb !important;
+    }
+
+    body.dark-mode nav {
+      background-color: rgba(15, 15, 15, 0.95);
+    }
+
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+
+    .dark-mode-toggle:hover {
+      background-color: var(--gold);
+      color: #0f0f0f;
+      transform: scale(1.1);
+    }
+
+    body.dark-mode .dark-mode-toggle:hover {
+      background-color: var(--gold);
+      color: #1a1a1a;
+    }
+
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
     }
@@ -203,11 +273,7 @@
     /* Navigation animations */
     nav {
       animation: slideInDown 0.4s ease;
-      padding: 0.5rem 0;
-    }
-
-    nav .max-w-6xl {
-      padding: 0.75rem 1rem;
+      padding: 0.35rem 0;
     }
 
     nav a, nav button {
@@ -217,42 +283,6 @@
     nav a:hover, nav button:hover {
       color: var(--gold);
       transform: scale(1.05);
-    }
-
-    nav .nav-logo,
-    nav .nav-logo * {
-      transition: none !important;
-      transform: none !important;
-    }
-
-    nav .nav-logo:hover,
-    nav .nav-logo:hover * {
-      transform: none !important;
-    }
-
-    nav .nav-logo {
-      white-space: nowrap;
-    }
-
-    #mobileMenuBtn {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 999px;
-      width: 48px;
-      height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-      font-size: 1.25rem;
-    }
-
-    #mobileMenuBtn:hover {
-      background: rgba(255, 255, 255, 0.16);
-      transform: none !important;
-    }
-
-    #mobileMenuBtn:active {
-      transform: none !important;
     }
 
     /* Button animations */
@@ -300,35 +330,6 @@
       transform: scale(1.1) rotate(8deg);
       box-shadow: 0 8px 20px rgba(201, 161, 100, 0.3);
       animation: glow 2s ease-in-out infinite;
-    }
-
-    .social-icon {
-      color: rgba(255,255,255,0.75);
-      transition: color 0.25s ease, transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-      background: rgba(255,255,255,0.1);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      border-radius: 50%;
-      padding: 0.25rem;
-    }
-
-    .social-icon:hover,
-    .social-icon:focus {
-      color: var(--gold);
-      transform: scale(0.92);
-      background: rgba(255,255,255,0.2);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    .social-icon:active {
-      color: var(--gold);
-      transform: scale(0.88);
-      background: rgba(255,255,255,0.15);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.25);
-    }
-
-    .social-icon svg {
-      width: 2rem;
-      height: 2rem;
     }
 
     /* Form elements animations */
@@ -468,25 +469,14 @@
     }
 
     .hero-overlay {
-      background: linear-gradient(180deg, rgba(15, 15, 15, 0.2), rgba(15, 15, 15, 0.65));
-      backdrop-filter: blur(1px);
+      background: linear-gradient(180deg, rgba(15, 15, 15, 0.25), rgba(15, 15, 15, 0.7));
     }
 
     #hero {
-      width: 100%;
-      min-height: 100vh;
       background-image: url('perfume.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: visible;
-      padding: 0;
-      margin: 0;
     }
 
     #backToTop {
@@ -542,8 +532,8 @@
       background: var(--black);
       color: white;
       text-align: center;
-      padding: 12px 0;
-      font-size: 13px;
+      padding: 10px 0;
+      font-size: 14px;
       font-weight: 500;
       font-family: 'Cairo', sans-serif;
       position: fixed;
@@ -564,11 +554,6 @@
       border: 1px solid rgba(255,255,255,0.06);
       box-shadow: none;
       display: block;
-      transition: all 0.3s ease;
-    }
-
-    .site-logo:hover {
-      border-color: rgba(201,161,100,0.3);
     }
 
     .product-tab {
@@ -590,22 +575,6 @@
     nav.hide {
       transform: translateY(-100%);
       transition: transform 0.3s ease;
-    }
-
-    #mobileMenu {
-      animation: slideDown 0.3s ease;
-      background: transparent !important;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     @media (max-width: 1024px) {
@@ -633,28 +602,14 @@
 
     @media (max-width: 768px) {
       nav .max-w-6xl {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.75rem 1rem !important;
+        flex-direction: column;
+        align-items: stretch;
       }
 
       nav .flex.items-center.justify-between {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
-      #hero {
-        background-attachment: scroll;
-        padding: 2rem 0;
-      }
-
-      #hero h1 {
-        font-size: 2.75rem;
-      }
-
-      #hero p:first-of-type {
-        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
       }
 
       .hero-text {
@@ -666,45 +621,20 @@
         top: 0;
         left: 0;
         right: 0;
-        padding: 0;
+        padding: 0.15rem 0;
       }
 
       nav .max-w-6xl {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        padding: 0.75rem 0.75rem;
-        position: relative;
-      }
+        gap: 0.25rem;
+        padding: 0 0.5rem;
 
-      nav .nav-left,
-      nav .nav-right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex: 0 0 auto;
-        min-width: 48px;
-        gap: 0.5rem;
       }
-
-      nav .nav-logo {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: auto;
-        padding: 0 0.75rem;
-      }
-
-      nav .nav-logo .site-logo {
-        width: 42px !important;
-        height: 42px !important;
-      }
-
 
       nav a span {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
       }
 
       nav .site-logo {
@@ -713,24 +643,8 @@
       }
 
       nav button {
-        padding: 0 !important;
-        font-size: 1rem !important;
-        border: none !important;
-        background: none !important;
-      }
-
-      #mobileMenuBtn {
-        color: white !important;
-      }
-
-      nav a span {
-        display: inline;
-      }
-
-      @media (max-width: 640px) {
-        nav a span {
-          display: none;
-        }
+        padding: 0.3rem 0.5rem !important;
+        font-size: 0.65rem !important;
       }
 
       .btn-gold {
@@ -756,6 +670,7 @@
         grid-template-columns: 1fr !important;
       }
 
+      .hero-overlay,
       .glass {
         border-radius: 24px;
       }
@@ -765,25 +680,20 @@
         height: 48px;
       }
 
-      @media (max-width: 640px) {
-        nav .site-logo {
-          width: 24px;
-          height: 24px;
-        }
-
-        nav a span {
-          font-size: 0.75rem;
+      @media (max-width: 768px) {
+        nav .max-w-6xl {
+          flex-direction: row-reverse;
         }
       }
 
       @media (max-width: 640px) {
         nav .site-logo {
-          width: 20px;
-          height: 20px;
+          width: 28px;
+          height: 28px;
         }
 
         nav a span {
-          font-size: 0.75rem;
+          font-size: 0.9rem;
         }
       }
 
@@ -807,58 +717,6 @@
         padding: 0.6rem !important;
         font-size: 0.9rem !important;
       }
-
-      /* Mobile nav improvements */
-      nav {
-        padding: 0.4rem 0;
-      }
-
-      nav .max-w-6xl {
-        padding: 0.5rem 0.75rem;
-      }
-
-      nav .nav-left,
-      nav .nav-right {
-        min-width: 42px;
-      }
-
-      #mobileMenuBtn {
-        width: 42px;
-        height: 42px;
-        font-size: 1.1rem;
-      }
-
-      .site-logo {
-        width: 32px;
-        height: 32px;
-      }
-
-      /* Extra small phone optimization */
-      @media (max-width: 480px) {
-        nav .max-w-6xl {
-          padding: 0.4rem 0.5rem;
-        }
-
-        nav .nav-left,
-        nav .nav-right {
-          min-width: 40px;
-        }
-
-        #mobileMenuBtn {
-          width: 40px;
-          height: 40px;
-          font-size: 1rem;
-        }
-
-        nav .nav-logo span {
-          display: none !important;
-        }
-
-        .site-logo {
-          width: 28px;
-          height: 28px;
-        }
-      }
     }
 
   </style>
@@ -870,57 +728,47 @@
   </div>
 
   <nav class="fixed top-10 left-0 right-0 z-50 backdrop-blur-sm bg-black/65 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between lg:justify-between">
-      <!-- Cart icon on mobile right -->
-      <div class="flex items-center gap-3 order-3 lg:order-3 nav-left">
-        <div class="relative cursor-pointer" onclick="openCartModal()">
-          <span class="text-white text-2xl hover:text-gold transition block" style="line-height: 1;">🛒</span>
-          <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 min-w-[22px] text-center font-bold">0</span>
-        </div>
-      </div>
-
-      <!-- Logo and Text (Center on mobile, Left on desktop) -->
-      <a href="./" rel="noopener noreferrer" class="flex items-center gap-2 nav-logo text-sm md:text-lg lg:text-xl font-black tracking-widest font-playfair gold order-2 lg:order-1">
-        <img src="logo.jpg" alt="MYRÉVA logo" class="site-logo w-8 lg:w-10 h-8 lg:h-10" />
-        <span class="hidden sm:inline text-sm md:text-base">MYRÉVA</span>
+    <div class="max-w-6xl mx-auto px-4 py-1.5 flex items-center justify-between">
+      <a href="./" rel="noopener noreferrer" class="flex items-center gap-2 text-xl font-black tracking-widest font-playfair gold">
+        <img src="logo.jpg" alt="MYRÉVA logo" class="site-logo w-10 h-10" />
+        <span>MYRÉVA</span>
       </a>
-
-      <!-- Desktop Navigation (Hidden on mobile) -->
-      <div class="hidden lg:flex gap-6 text-xs font-bold order-2">
-        <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="./">الرئيسية</a>
+      <div class="hidden lg:flex gap-6 text-xs font-bold">
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#about">عن MYRÉVA</a>
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#products">المنتجات</a>
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#strengths">نقاط القوة</a>
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#contact">تواصل معنا</a>
       </div>
-
-      <!-- Mobile Hamburger Menu (Left side on mobile) -->
-      <div class="lg:hidden order-1 nav-right flex items-center">
-        <button id="mobileMenuBtn" class="text-white hover:text-gold transition" aria-label="القائمة">
+      <div class="relative ml-4 cursor-pointer" onclick="openCartModal()">
+        <span class="text-white text-xl">🛒</span>
+        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1 min-w-[20px] text-center">0</span>
+      </div>
+      <button id="darkModeToggle" class="dark-mode-toggle" aria-label="تبديل الوضع الليلي">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="lg:hidden">
+        <button id="mobileMenuBtn" class="text-gold border border-gold px-3 py-2 rounded-xl text-sm" aria-label="القائمة">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
-
-    <!-- Mobile Menu Dropdown -->
-    <div id="mobileMenu" class="hidden px-4 py-4 text-right space-y-2 lg:hidden bg-transparent">
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="./">الرئيسية</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="#about">عن MYRÉVA</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="#products">المنتجات</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="#strengths">نقاط القوة</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 hover:text-gold" href="#contact">تواصل معنا</a>
+    <div id="mobileMenu" class="hidden px-4 pb-4 text-right space-y-3 lg:hidden">
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b-2 border-transparent hover:border-gold" href="#about">عن MYRÉVA</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b-2 border-transparent hover:border-gold" href="#products">المنتجات</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b-2 border-transparent hover:border-gold" href="#strengths">نقاط القوة</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b-2 border-transparent hover:border-gold" href="#contact">تواصل معنا</a>
     </div>
   </nav>
 
-  <header id="hero" class="relative min-h-screen overflow-hidden">
+  <header id="hero" class="relative h-screen pt-40 overflow-hidden">
     <div class="absolute inset-0 hero-overlay"></div>
-    <div class="relative w-full h-full flex flex-col justify-center items-start text-left gap-4 px-4 md:px-12" style="z-index: 10;">
-      <h1 class="text-6xl md:text-7xl font-black tracking-wider gold" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">MYRÉVA</h1>
-      <p class="text-2xl md:text-3xl text-white font-semibold" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.6);">فخامة بأسعار معقولة في كل قطرة</p>
-      <p class="max-w-lg text-right text-white/95 text-lg" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">نقدم عطورًا مميزة بسعة 10 مل لكل من يبحث عن الفخامة اليومية بسهولة.</p>
-      <div class="flex flex-col sm:flex-row gap-4 mt-6">
-        <a href="#products" class="btn-gold text-black font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all">عرض المنتجات</a>
-        <a href="#contact" class="border-2 border-white text-white hover:bg-white/20 px-8 py-3 rounded-xl font-semibold transition-all backdrop-blur-sm">تواصل معنا</a>
+    <div class="relative w-full px-2 h-full flex flex-col justify-center items-start text-left gap-4 mr-12">
+      <h1 class="text-6xl md:text-7xl font-black tracking-wider gold">MYRÉVA</h1>
+      <p class="text-2xl md:text-3xl text-white font-semibold">فخامة بأسعار معقولة في كل قطرة</p>
+      <p class="max-w-lg ml-auto text-right text-white/90 text-lg">نقدم عطورًا مميزة بسعة 10 مل لكل من يبحث عن الفخامة اليومية بسهولة.</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-4">
+        <a href="#products" class="btn-gold text-black font-semibold px-6 py-3 rounded-xl shadow-lg">عرض المنتجات</a>
+        <a href="#contact" class="border border-white text-white hover:bg-white/10 px-6 py-3 rounded-xl font-semibold">تواصل معنا</a>
       </div>
     </div>
   </header>
@@ -1178,13 +1026,13 @@
           </div>
           <!-- Social Media Icons -->
           <div class="flex flex-col gap-4">
-            <a href="mailto:myrevaparfum@gmail.com" class="social-icon text-2xl">
+            <a href="mailto:myrevaparfum@gmail.com" class="text-gray-400 hover:text-gold transition duration-300 text-2xl hover:scale-110">
               <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
             </a>
-            <a href="https://www.instagram.com/myreva_parfums?igsh=MXJyNDJoYjRyZ3d4dw==" target="_blank" class="social-icon text-2xl">
+            <a href="https://www.instagram.com/myreva_parfums?igsh=MXJyNDJoYjRyZ3d4dw==" target="_blank" class="text-gray-400 hover:text-gold transition duration-300 text-2xl hover:scale-110">
               <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.322a1.44 1.44 0 110-2.881 1.44 1.44 0 010 2.881z"></path></svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61575479682600" target="_blank" class="social-icon text-2xl">
+            <a href="https://www.facebook.com/profile.php?id=61575479682600" target="_blank" class="text-gray-400 hover:text-gold transition duration-300 text-2xl hover:scale-110">
               <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
             </a>
           </div>
@@ -1407,7 +1255,7 @@
     });
 
     /* Add ripple effect to buttons */
-    document.querySelectorAll('button:not(#mobileMenuBtn)').forEach(btn => {
+    document.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', function(e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
@@ -1439,19 +1287,41 @@
       });
     });
 
-    /* Smooth color transitions for hover effects */
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('mouseenter', function() {
-        this.style.transition = 'all 0.3s ease';
-      });
+    /* Dark Mode Toggle */
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+
+    // Check for saved dark mode preference or system preference
+    if (localStorage.getItem('darkMode') === 'enabled' || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.getItem('darkMode') !== 'disabled')) {
+      html.classList.add('dark-mode');
+      updateDarkModeIcon();
+    }
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark-mode');
+      
+      if (html.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+      
+      updateDarkModeIcon();
     });
 
-    /* Enhanced image lazy loading animations */
-    document.querySelectorAll('img').forEach(img => {
-      img.addEventListener('load', () => {
-        img.style.animation = 'fadeInUp 0.6s ease';
-      });
-    });
+    function updateDarkModeIcon() {
+      const icon = darkModeToggle.querySelector('i');
+      if (html.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    }
   </script>
 
 </body>
