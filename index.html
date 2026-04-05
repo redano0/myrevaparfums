@@ -203,7 +203,11 @@
     /* Navigation animations */
     nav {
       animation: slideInDown 0.4s ease;
-      padding: 0.35rem 0;
+      padding: 0.5rem 0;
+    }
+
+    nav .max-w-6xl {
+      padding: 0.75rem 1rem;
     }
 
     nav a, nav button {
@@ -213,6 +217,42 @@
     nav a:hover, nav button:hover {
       color: var(--gold);
       transform: scale(1.05);
+    }
+
+    nav .nav-logo,
+    nav .nav-logo * {
+      transition: none !important;
+      transform: none !important;
+    }
+
+    nav .nav-logo:hover,
+    nav .nav-logo:hover * {
+      transform: none !important;
+    }
+
+    nav .nav-logo {
+      white-space: nowrap;
+    }
+
+    #mobileMenuBtn {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      font-size: 1.25rem;
+    }
+
+    #mobileMenuBtn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      transform: none !important;
+    }
+
+    #mobileMenuBtn:active {
+      transform: none !important;
     }
 
     /* Button animations */
@@ -502,8 +542,8 @@
       background: var(--black);
       color: white;
       text-align: center;
-      padding: 10px 0;
-      font-size: 14px;
+      padding: 12px 0;
+      font-size: 13px;
       font-weight: 500;
       font-family: 'Cairo', sans-serif;
       position: fixed;
@@ -524,6 +564,11 @@
       border: 1px solid rgba(255,255,255,0.06);
       box-shadow: none;
       display: block;
+      transition: all 0.3s ease;
+    }
+
+    .site-logo:hover {
+      border-color: rgba(201,161,100,0.3);
     }
 
     .product-tab {
@@ -588,16 +633,17 @@
 
     @media (max-width: 768px) {
       nav .max-w-6xl {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem !important;
       }
 
       nav .flex.items-center.justify-between {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
-      }
-
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
       #hero {
         background-attachment: scroll;
         padding: 2rem 0;
@@ -627,22 +673,48 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 0.5rem;
-        padding: 0.75rem 0.5rem;
+        gap: 1rem;
+        padding: 0.75rem 0.75rem;
+        position: relative;
       }
 
+      nav .nav-left,
+      nav .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        min-width: 48px;
+        gap: 0.5rem;
+      }
+
+      nav .nav-logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        padding: 0 0.75rem;
+      }
+
+      nav .nav-logo .site-logo {
+        width: 42px !important;
+        height: 42px !important;
+      }
+
+
       nav a span {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
       }
 
       nav .site-logo {
-        width: 28px !important;
-        height: 28px !important;
+        width: 24px !important;
+        height: 24px !important;
       }
 
       nav button {
         padding: 0 !important;
-        font-size: 1.25rem !important;
+        font-size: 1rem !important;
         border: none !important;
         background: none !important;
       }
@@ -706,12 +778,12 @@
 
       @media (max-width: 640px) {
         nav .site-logo {
-          width: 28px;
-          height: 28px;
+          width: 20px;
+          height: 20px;
         }
 
         nav a span {
-          font-size: 0.9rem;
+          font-size: 0.75rem;
         }
       }
 
@@ -735,6 +807,58 @@
         padding: 0.6rem !important;
         font-size: 0.9rem !important;
       }
+
+      /* Mobile nav improvements */
+      nav {
+        padding: 0.4rem 0;
+      }
+
+      nav .max-w-6xl {
+        padding: 0.5rem 0.75rem;
+      }
+
+      nav .nav-left,
+      nav .nav-right {
+        min-width: 42px;
+      }
+
+      #mobileMenuBtn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
+
+      .site-logo {
+        width: 32px;
+        height: 32px;
+      }
+
+      /* Extra small phone optimization */
+      @media (max-width: 480px) {
+        nav .max-w-6xl {
+          padding: 0.4rem 0.5rem;
+        }
+
+        nav .nav-left,
+        nav .nav-right {
+          min-width: 40px;
+        }
+
+        #mobileMenuBtn {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+
+        nav .nav-logo span {
+          display: none !important;
+        }
+
+        .site-logo {
+          width: 28px;
+          height: 28px;
+        }
+      }
     }
 
   </style>
@@ -747,17 +871,18 @@
 
   <nav class="fixed top-10 left-0 right-0 z-50 backdrop-blur-sm bg-black/65 text-white">
     <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between lg:justify-between">
-      <!-- Mobile Hamburger Menu (Right side on mobile) -->
-      <div class="lg:hidden order-1">
-        <button id="mobileMenuBtn" class="text-white text-2xl hover:text-gold transition" aria-label="القائمة">
-          <i class="fas fa-bars"></i>
-        </button>
+      <!-- Cart icon on mobile right -->
+      <div class="flex items-center gap-3 order-3 lg:order-3 nav-left">
+        <div class="relative cursor-pointer" onclick="openCartModal()">
+          <span class="text-white text-2xl hover:text-gold transition block" style="line-height: 1;">🛒</span>
+          <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 min-w-[22px] text-center font-bold">0</span>
+        </div>
       </div>
 
       <!-- Logo and Text (Center on mobile, Left on desktop) -->
-      <a href="./" rel="noopener noreferrer" class="flex items-center gap-2 text-lg lg:text-xl font-black tracking-widest font-playfair gold order-2 lg:order-1">
+      <a href="./" rel="noopener noreferrer" class="flex items-center gap-2 nav-logo text-sm md:text-lg lg:text-xl font-black tracking-widest font-playfair gold order-2 lg:order-1">
         <img src="logo.jpg" alt="MYRÉVA logo" class="site-logo w-8 lg:w-10 h-8 lg:h-10" />
-        <span class="hidden sm:inline">MYRÉVA</span>
+        <span class="hidden sm:inline text-sm md:text-base">MYRÉVA</span>
       </a>
 
       <!-- Desktop Navigation (Hidden on mobile) -->
@@ -769,22 +894,21 @@
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#contact">تواصل معنا</a>
       </div>
 
-      <!-- Cart and Search Icons (Left side on mobile) -->
-      <div class="flex items-center gap-3 order-3">
-        <div class="relative cursor-pointer" onclick="openCartModal()">
-          <span class="text-white text-xl hover:text-gold transition block">🛒</span>
-          <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1 min-w-[20px] text-center">0</span>
-        </div>
+      <!-- Mobile Hamburger Menu (Left side on mobile) -->
+      <div class="lg:hidden order-1 nav-right flex items-center">
+        <button id="mobileMenuBtn" class="text-white hover:text-gold transition" aria-label="القائمة">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobileMenu" class="hidden px-4 pb-4 text-right space-y-3 lg:hidden bg-transparent">
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b border-gold/20 hover:text-gold" href="./">الرئيسية</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b border-gold/20 hover:text-gold" href="#about">عن MYRÉVA</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b border-gold/20 hover:text-gold" href="#products">المنتجات</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 border-b border-gold/20 hover:text-gold" href="#strengths">نقاط القوة</a>
-      <a class="hover:text-gold block font-semibold transition duration-300 pb-2 hover:text-gold" href="#contact">تواصل معنا</a>
+    <div id="mobileMenu" class="hidden px-4 py-4 text-right space-y-2 lg:hidden bg-transparent">
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="./">الرئيسية</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="#about">عن MYRÉVA</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="#products">المنتجات</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 border-b border-gold/20 hover:text-gold" href="#strengths">نقاط القوة</a>
+      <a class="hover:text-gold block font-semibold transition duration-300 pb-3 hover:text-gold" href="#contact">تواصل معنا</a>
     </div>
   </nav>
 
@@ -1283,7 +1407,7 @@
     });
 
     /* Add ripple effect to buttons */
-    document.querySelectorAll('button').forEach(btn => {
+    document.querySelectorAll('button:not(#mobileMenuBtn)').forEach(btn => {
       btn.addEventListener('click', function(e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
