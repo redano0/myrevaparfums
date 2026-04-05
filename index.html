@@ -21,6 +21,77 @@
       color: #1f1f1f;
       scroll-behavior: smooth;
       direction: rtl;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .glass {
+      background-color: rgba(50, 50, 50, 0.85);
+      border: 1px solid rgba(201, 161, 100, 0.25);
+    }
+
+    body.dark-mode .promo-banner {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3, 
+    body.dark-mode h4 {
+      color: #e0e0e0;
+    }
+
+    body.dark-mode input, 
+    body.dark-mode textarea {
+      background-color: #2a2a2a !important;
+      color: #e0e0e0 !important;
+      border-color: #444 !important;
+    }
+
+    body.dark-mode input::placeholder, 
+    body.dark-mode textarea::placeholder {
+      color: #999 !important;
+    }
+
+    body.dark-mode .text-gray-700 {
+      color: #bbb !important;
+    }
+
+    body.dark-mode nav {
+      background-color: rgba(15, 15, 15, 0.95);
+    }
+
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+
+    .dark-mode-toggle:hover {
+      background-color: var(--gold);
+      color: #0f0f0f;
+      transform: scale(1.1);
+    }
+
+    body.dark-mode .dark-mode-toggle:hover {
+      background-color: var(--gold);
+      color: #1a1a1a;
     }
 
     h1, h2, h3, h4 {
@@ -202,6 +273,7 @@
     /* Navigation animations */
     nav {
       animation: slideInDown 0.4s ease;
+      padding: 0.35rem 0;
     }
 
     nav a, nav button {
@@ -545,6 +617,36 @@
         line-height: 1.1;
       }
 
+      nav {
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0.15rem 0;
+      }
+
+      nav .max-w-6xl {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.25rem;
+        padding: 0 0.5rem;
+
+      }
+
+      nav a span {
+        font-size: 0.875rem;
+      }
+
+      nav .site-logo {
+        width: 24px !important;
+        height: 24px !important;
+      }
+
+      nav button {
+        padding: 0.3rem 0.5rem !important;
+        font-size: 0.65rem !important;
+      }
+
       .btn-gold {
         width: 100% !important;
       }
@@ -555,6 +657,13 @@
       .promo-banner {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
+      }
+
+      #contact img {
+        max-width: 100%;
+        width: 100%;
+        transform: none !important;
+        margin: 0 auto;
       }
 
       .grid {
@@ -571,10 +680,42 @@
         height: 48px;
       }
 
+      @media (max-width: 768px) {
+        nav .max-w-6xl {
+          flex-direction: row-reverse;
+        }
+      }
+
+      @media (max-width: 640px) {
+        nav .site-logo {
+          width: 28px;
+          height: 28px;
+        }
+
+        nav a span {
+          font-size: 0.9rem;
+        }
+      }
+
       .product-tab {
         width: 100%;
         text-align: center;
         padding: 0.85rem 0;
+      }
+
+      #contactForm {
+        padding: 1.5rem !important;
+      }
+
+      #contactForm input,
+      #contactForm textarea {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.9rem !important;
+      }
+
+      #sendBtn {
+        padding: 0.6rem !important;
+        font-size: 0.9rem !important;
       }
     }
 
@@ -587,12 +728,12 @@
   </div>
 
   <nav class="fixed top-10 left-0 right-0 z-50 backdrop-blur-sm bg-black/65 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="./" rel="noopener noreferrer" class="flex items-center gap-3 text-2xl font-black tracking-widest font-playfair gold">
-        <img src="logo.jpg" alt="MYRÉVA logo" class="site-logo" />
+    <div class="max-w-6xl mx-auto px-4 py-1.5 flex items-center justify-between">
+      <a href="./" rel="noopener noreferrer" class="flex items-center gap-2 text-xl font-black tracking-widest font-playfair gold">
+        <img src="logo.jpg" alt="MYRÉVA logo" class="site-logo w-10 h-10" />
         <span>MYRÉVA</span>
       </a>
-      <div class="hidden lg:flex gap-8 text-sm font-bold">
+      <div class="hidden lg:flex gap-6 text-xs font-bold">
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#about">عن MYRÉVA</a>
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#products">المنتجات</a>
         <a class="hover:text-gold transition duration-300 pb-2 px-1 border-b-2 border-transparent hover:border-gold" href="#strengths">نقاط القوة</a>
@@ -602,8 +743,13 @@
         <span class="text-white text-xl">🛒</span>
         <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1 min-w-[20px] text-center">0</span>
       </div>
+      <button id="darkModeToggle" class="dark-mode-toggle" aria-label="تبديل الوضع الليلي">
+        <i class="fas fa-moon"></i>
+      </button>
       <div class="lg:hidden">
-        <button id="mobileMenuBtn" class="text-gold border border-gold px-3 py-1 rounded-xl text-sm">القائمة</button>
+        <button id="mobileMenuBtn" class="text-gold border border-gold px-3 py-2 rounded-xl text-sm" aria-label="القائمة">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </div>
     <div id="mobileMenu" class="hidden px-4 pb-4 text-right space-y-3 lg:hidden">
@@ -803,25 +949,25 @@
 
     <section id="contact" class="rtl-support section-border pt-12">
       <h2 class="text-4xl font-bold gold mb-8 text-center">تواصل معنا</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <form id="contactForm" class="glass p-8 rounded-3xl shadow-xl border-gold/30 space-y-4 w-full" onsubmit="return false;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <form id="contactForm" class="glass p-6 rounded-2xl shadow-xl border-gold/30 space-y-3 w-full" onsubmit="return false;">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1" for="name">الاسم</label>
-            <input type="text" id="name" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gold" placeholder="الاسم الكامل" required />
+            <label class="block text-xs font-medium text-gray-700 mb-1" for="name">الاسم</label>
+            <input type="text" id="name" class="w-full border border-gray-300 rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold" placeholder="الاسم الكامل" required />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1" for="email">البريد الإلكتروني</label>
-            <input type="email" id="email" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gold" placeholder="name@domain.com" required />
+            <label class="block text-xs font-medium text-gray-700 mb-1" for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" class="w-full border border-gray-300 rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold" placeholder="name@domain.com" required />
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1" for="message">الرسالة</label>
-            <textarea id="message" rows="4" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gold" placeholder="كيف يمكننا مساعدتك؟" required></textarea>
+            <label class="block text-xs font-medium text-gray-700 mb-1" for="message">الرسالة</label>
+            <textarea id="message" rows="3" class="w-full border border-gray-300 rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold" placeholder="كيف يمكننا مساعدتك؟" required></textarea>
           </div>
-          <button id="sendBtn" type="submit" class="w-full btn-gold text-black font-semibold py-3 rounded-lg">إرسال الرسالة</button>
-          <p id="formStatus" class="text-sm text-green-700 hidden" role="status">تم إرسال الرسالة بنجاح!</p>
+          <button id="sendBtn" type="submit" class="w-full btn-gold text-black font-semibold py-2 rounded-lg text-sm">إرسال الرسالة</button>
+          <p id="formStatus" class="text-xs text-green-700 hidden" role="status">تم إرسال الرسالة بنجاح!</p>
         </form>
         <div class="flex justify-center">
-          <img src="wara.jpg" alt="تواصل معنا" class="w-full h-auto rounded-2xl border border-gold/20 scale-110 -translate-x-8 transition-transform duration-300 hover:scale-115" style="filter: brightness(1.05) contrast(1.05) saturate(1.1); box-shadow: 0 8px 20px rgba(201, 161, 100, 0.15), 0 0 12px rgba(201, 161, 100, 0.05);">
+          <img src="wara.jpg" alt="تواصل معنا" class="w-full max-w-md h-auto rounded-2xl border border-gold/20 transition-transform duration-300 hover:scale-105" style="filter: brightness(1.05) contrast(1.05) saturate(1.1); box-shadow: 0 8px 20px rgba(201, 161, 100, 0.15), 0 0 12px rgba(201, 161, 100, 0.05);">
         </div>
       </div>
     </section>
@@ -1140,6 +1286,42 @@
         img.style.animation = 'fadeInUp 0.6s ease';
       });
     });
+
+    /* Dark Mode Toggle */
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+
+    // Check for saved dark mode preference or system preference
+    if (localStorage.getItem('darkMode') === 'enabled' || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches && 
+        localStorage.getItem('darkMode') !== 'disabled')) {
+      html.classList.add('dark-mode');
+      updateDarkModeIcon();
+    }
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark-mode');
+      
+      if (html.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+      
+      updateDarkModeIcon();
+    });
+
+    function updateDarkModeIcon() {
+      const icon = darkModeToggle.querySelector('i');
+      if (html.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    }
   </script>
 
 </body>
